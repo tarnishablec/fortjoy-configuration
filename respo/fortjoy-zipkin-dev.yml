@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: fortjoy-zipkin
+  boot:
+    admin:
+      client:
+        url: http://localhost:8887
+server:
+  port: 9411
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10010/eureka/
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: {health, info}

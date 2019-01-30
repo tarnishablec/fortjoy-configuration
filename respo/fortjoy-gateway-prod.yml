@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: fortjot-gateway
+  zipkin:
+    base-url: http://192.168.50.50:9411
+  boot:
+    admin:
+      client:
+        url: http://192.168.50.50:8887
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.50.50:10010/eureka
+server:
+  port: 10080
+zuul:
+  routes:
+    api-a: /api/a/**
+    servcieId: feign
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: {health, info}

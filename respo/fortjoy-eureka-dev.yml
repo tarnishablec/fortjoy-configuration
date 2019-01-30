@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: fortjoy-eureka
+  zipkin:
+    base-url: http://localhost:9411
+  boot:
+    admin:
+      client:
+        url: http://localhost:8887
+server:
+  port: 10010
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: localhost
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: {health, info}
